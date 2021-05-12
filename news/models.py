@@ -13,13 +13,20 @@ class Editor(models.Model):
   
   def save_editor(self):
     self.save()
+  
+  def delete_editor(self):
+    self.delete()
+  
+  @classmethod
+  def update_editor(cls,id,name):
+    cls.objects.filter(id=id).update(name=name)
 
 class tags(models.Model):
   name = models.CharField(max_length =30)
 
   def __str__(self):
     return self.name
-  
+
   
 
 class Article(models.Model):
@@ -38,4 +45,9 @@ class Article(models.Model):
   @classmethod
   def days_news(cls,date):
     news = cls.objects.filter(pub_date__date = date)
+    return news
+  
+  @classmethod
+  def search_by_title(cls,search_term):
+    news = cls.objects.filter(title__icontains=search_term)
     return news
