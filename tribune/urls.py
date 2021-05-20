@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth.views import LogoutView
+
 # from django.conf.urls import url,include
 
 urlpatterns = [
     path('', include('news.urls')),
-    path('admin/', admin.site.urls)    
+    path('logout/',LogoutView.as_view(redirect_field_name ='/')),  
+    path('admin/', admin.site.urls),  
 ]

@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
-    'bootstrap5'
+    'bootstrap5',
+    'tinymce',
 ]
 
 MIDDLEWARE = [

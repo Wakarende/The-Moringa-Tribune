@@ -3,40 +3,40 @@ from .models import Editor,Article,tags
 import datetime as dt
 
 # Create your tests here.
-class EditorTestClass(TestCase):
+# class EditorTestClass(TestCase):
 
-  # Set up method
-  def setUp(self):
-    self.james= Editor(first_name = 'James', last_name ='Muriuki', email ='james@moringaschool.com')
+#   # Set up method
+#   def setUp(self):
+#     self.james= Editor(first_name = 'James', last_name ='Muriuki', email ='james@moringaschool.com')
 
-  def tearDown(self):
-    Editor.objects.all().delete()
-    tags.objects.all().delete()
-    Article.objects.all().delete()
+#   def tearDown(self):
+#     Editor.objects.all().delete()
+#     tags.objects.all().delete()
+#     Article.objects.all().delete()
 
-  # Testing  instance
-  def test_instance(self):
-    self.assertTrue(isinstance(self.james,Editor))
+#   # Testing  instance
+#   def test_instance(self):
+#     self.assertTrue(isinstance(self.james,Editor))
 
-  def test_save_method(self):
-    self.james.save_editor()
-    editors = Editor.objects.all()
-    self.assertTrue(len(editors) > 0)
+#   def test_save_method(self):
+#     self.james.save_editor()
+#     editors = Editor.objects.all()
+#     self.assertTrue(len(editors) > 0)
   
-  def test_delete_method(self):
-    self.james.save_editor()
-    editors = Editor.objects.all()
-    self.assertEqual(len(editors),1)
-    self.james.delete_editor()
-    new_editor=Editor.objects.all()
-    self.assertEqual(len(new_editor),0)
+#   def test_delete_method(self):
+#     self.james.save_editor()
+#     editors = Editor.objects.all()
+#     self.assertEqual(len(editors),1)
+#     self.james.delete_editor()
+#     new_editor=Editor.objects.all()
+#     self.assertEqual(len(new_editor),0)
 
-  def test_update_editor(self):
-    self.james.save_editor()
-    editors = Editor.objects.all()
-    self.update_editor(self.james.id,'Joy')
-    update = Editor.objects.get(name='Joy')
-    self.assertEqual(update.name,'Joy')
+#   def test_update_editor(self):
+#     self.james.save_editor()
+#     editors = Editor.objects.all()
+#     self.update_editor(self.james.id,'Joy')
+#     update = Editor.objects.get(name='Joy')
+#     self.assertEqual(update.name,'Joy')
     
 # class ArticleTestClass(TestCase):
 
